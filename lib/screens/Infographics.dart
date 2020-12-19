@@ -97,10 +97,7 @@ class _InfographicsState extends State<Infographics> {
         backgroundColor: Colors.black,
         title: Center(child: new Text("Weather Report")),
         actions: <Widget>[
-          new IconButton(
-            icon: new Icon(Icons.filter_alt_rounded),
-            onPressed: () {},
-          ),
+
           new IconButton(
             icon: new Icon(Icons.search),
             onPressed: () {

@@ -98,10 +98,6 @@ class _MarketsState extends State<Markets> {
         title: Center(child: new Text("Weather Report")),
         actions: <Widget>[
           new IconButton(
-            icon: new Icon(Icons.filter_alt_rounded),
-            onPressed: () {},
-          ),
-          new IconButton(
             icon: new Icon(Icons.search),
             onPressed: () {
               showSearch(context: context, delegate: ArticleSearch());

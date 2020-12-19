@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:news/routes.dart';
 
-import 'package:news/screens/bottomnav.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -11,7 +12,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: BottomBar(),
+      theme: ThemeData.dark().copyWith(
+        appBarTheme: AppBarTheme(elevation: 0.0, color: Colors.black12),
+        primaryColor: Color(0xFF000000),
+        scaffoldBackgroundColor: Color(0xFF000000),
+      ),
+      initialRoute: '/',
+      onGenerateRoute: Routes.generateRoute,
     );
   }
 }
