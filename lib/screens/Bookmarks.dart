@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../constants.dart';
 class Bookmarks extends StatefulWidget {
   @override
   _BookmarksState createState() => _BookmarksState();
@@ -7,6 +9,31 @@ class Bookmarks extends StatefulWidget {
 class _BookmarksState extends State<Bookmarks> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Center(
+            child: Text(
+              "GrabYourSkills",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: Fontfamily,
+                letterSpacing: 1,
+              ),
+            ),
+          ),
+        ),
+        body: Column(
+          children: <Widget>[
+           Container(
+             child: Text("Bookmark your favourite articles"),
+           ),
+            Container(
+              child: Icon(Icons.book),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
