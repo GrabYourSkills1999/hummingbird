@@ -33,6 +33,7 @@ class _BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+
         body: PageView(
           controller: _pageController,
           children: _screens,
@@ -54,25 +55,26 @@ class _BottomBarState extends State<BottomBar> {
             BottomNavigationBarItem(
               backgroundColor: Color(0xFF000000),
               icon: Icon(
-                FontAwesomeIcons.circle,
+                FontAwesomeIcons.home,
+
               ),
               label: "Home",
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                FontAwesomeIcons.folder,
+                FontAwesomeIcons.chartLine,
               ),
               label: "Category",
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                FontAwesomeIcons.search,
+                FontAwesomeIcons.image,
               ),
               label: "Search",
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.perm_identity,
+                Icons.bookmark,
               ),
               label: "Profile",
             ),
