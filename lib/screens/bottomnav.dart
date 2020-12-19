@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:news/screens/Bookmarks.dart';
+import 'package:news/screens/Infographics.dart';
+import 'package:news/screens/Markets.dart';
+
+import '../constants.dart';
+import 'Home.dart';
 
 const double sizeboxheight = 25;
 
@@ -11,7 +16,7 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   PageController _pageController = PageController();
-  List<Widget> _screens = [Home(), Category(), Search(), Profile()];
+  List<Widget> _screens = [Home(), Markets(), Infographics(), Bookmarks()];
   int _selectedIndex = 0;
   void _onPageChanged(int index) {
     setState(() {
