@@ -14,7 +14,7 @@ class _BookmarksState extends State<Bookmarks> {
         appBar: AppBar(
           title: Center(
             child: Text(
-              "GrabYourSkills",
+              "Weather Report",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontFamily: Fontfamily,

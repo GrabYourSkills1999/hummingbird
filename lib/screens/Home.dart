@@ -60,6 +60,7 @@ class _HomeState extends State<Home> {
               },
             ),
             ListTile(
+              leading:  Icon(FontAwesomeIcons.envelopeOpenText,size: 20,),
               title: Text('Any Feedback?'),
               onTap: () {
                 // Update the state of the app
@@ -69,6 +70,7 @@ class _HomeState extends State<Home> {
               },
             ),
             ListTile(
+              leading:  Icon(FontAwesomeIcons.shareAlt,size: 20,),
               title: Text('Share with a friend'),
               onTap: () {
                 // Update the state of the app
@@ -78,6 +80,7 @@ class _HomeState extends State<Home> {
               },
             ),
             ListTile(
+              leading:  Icon(FontAwesomeIcons.signOutAlt,size: 20,),
               title: Text('Logout'),
               onTap: () {
                 // Update the state of the app
