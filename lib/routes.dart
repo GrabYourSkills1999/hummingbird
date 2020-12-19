@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/screens/bottomnav.dart';
 
-import 'main.dart';
 
 
 

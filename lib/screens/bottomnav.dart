@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news/screens/Bookmarks.dart';
 import 'package:news/screens/Infographics.dart';
 import 'package:news/screens/Markets.dart';
-
 import '../constants.dart';
 import 'Home.dart';
 

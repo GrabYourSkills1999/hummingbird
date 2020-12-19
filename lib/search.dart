@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+
 class ArticleSearch extends SearchDelegate {
   ArticleSearch({
     String hintText,
@@ -16,7 +18,10 @@ class ArticleSearch extends SearchDelegate {
   }
 
   @override
-  Widget buildSuggestions(BuildContext context) => Text('suggestions');
+  Widget buildSuggestions(BuildContext context) => Center(child: Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Text('suggestions'),
+  ));
 
   @override
   Widget buildResults(BuildContext context){
