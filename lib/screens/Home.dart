@@ -10,6 +10,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +32,26 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
+        var newslist;
+
+        void getNews() async {
+      News news = News();
+      await news.getNews();
+      newslist = news.news;
+      setState(() {
+        _loading = false;
+      });
+    }
+
+    @override
+    void initState() {
+      _loading = true;
+      // TODO: implement initState
+      super.initState();
+
+      categories = getCategories();
+      getNews();
+    }
       body: ListView(
         children: [
           Item(),
