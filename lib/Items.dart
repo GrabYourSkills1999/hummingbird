@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:news/backend/article.dart';
+
 
 class Item extends StatelessWidget {
+  final String imgUrl, title, desc, content, posturl;
 
+  Item({this.imgUrl, this.desc, this.title, this.content, @required this.posturl});
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(18.0),
       child: Container(
         decoration: BoxDecoration(
+          color: Color(0xFF272727),
           boxShadow: [
             BoxShadow(
-              color: Colors.black87,
-              blurRadius: 2.0,
+              blurRadius: 4.0,
               spreadRadius: 0.0,
-              offset: Offset(2.0, 2.0), // shadow direction: bottom right
+              offset: Offset(1.0, 1.0), // shadow direction: bottom right
             )
           ],
           shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.all(Radius.circular(25.0)
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25.0),
+              topRight: Radius.circular(25.0)),
           ),
-        ),
-        height: 250,
+
+
         child: Container(
           child: Column(
             children: [
@@ -28,15 +34,16 @@ class Item extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(25.0),
                     topRight: Radius.circular(25.0)),
-                child: Image(
-                  height: 100,
-                  width: 300,
-                  image: AssetImage('image/hh.JPG'),
-                ),
+                child: Image.network(
+                  imgUrl,
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
+                )
               ),
               Container(
-                child: Text("data",
-                  style: TextStyle(
+                child: Text("data goes here",
+                  style: TextStyle(fontSize: 20,
                       color: Colors.white
                   ),
                 ),
@@ -47,17 +54,17 @@ class Item extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 19.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Container(
-                      child: Text("5 hours ago",
+                      child: Text(desc,
+                    maxLines: 2,
                         style: TextStyle(
                             color: Colors.white
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width:  220,
-                    ),
+
                     Container(
                       child: Icon(Icons.bookmark_border_outlined,color: Colors.white,),
                     ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/routes.dart';
-
+//f35e96e8440643358ffc688de1f15a39
 
 
 void main() {
@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
         appBarTheme: AppBarTheme(elevation: 0.0, color: Colors.black12),
-        primaryColor: Color(0xFF000000),
-        scaffoldBackgroundColor: Color(0xFF000000),
+
       ),
       initialRoute: '/',
       onGenerateRoute: Routes.generateRoute,

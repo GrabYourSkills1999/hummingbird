@@ -13,10 +13,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       drawer: Drawers(),
       appBar: AppBar(
         elevation: 4.0,
-        backgroundColor: Colors.black,
         title: Center(child: new Text("Weather Report")),
         actions: <Widget>[
           new IconButton(
