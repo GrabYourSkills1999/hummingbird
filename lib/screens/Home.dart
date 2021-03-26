@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:news/backend/article.dart';
 import '../Drawer.dart';
 import '../Items.dart';
 import '../search.dart';
+import 'package:news/backend/news.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -10,14 +12,35 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool _loading = true;
 
+
+  var newslist;
+
+  void getNews() async {
+    News news = News();
+    await news.getnews();
+    newslist = news.news;
+    setState(() {
+      _loading = false;
+    });
+  }
+
+  @override
+  void initState() {
+   // _loading = true;
+    // TODO: implement initState
+    super.initState();
+    getNews();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+
       drawer: Drawers(),
       appBar: AppBar(
         elevation: 4.0,
+        backgroundColor: Colors.black,
         title: Center(child: new Text("Weather Report")),
         actions: <Widget>[
           new IconButton(
@@ -32,37 +55,27 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-        var newslist;
 
-        void getNews() async {
-      News news = News();
-      await news.getNews();
-      newslist = news.news;
-      setState(() {
-        _loading = false;
-      });
-    }
-
-    @override
-    void initState() {
-      _loading = true;
-      // TODO: implement initState
-      super.initState();
-
-      categories = getCategories();
-      getNews();
-    }
-      body: ListView(
-        children: [
-          Item(),
-          Item(),
-          Item(),
-          Item(),
-          Item(),
-          Item(),
-          Item(),
-        ],
-      ),
+      body:_loading?Center(child: CircularProgressIndicator(color: Colors.red,),): SingleChildScrollView(
+        child: Center(
+          child: Container(
+            margin: EdgeInsets.only(top: 16),
+            child: ListView.builder(
+                itemCount: newslist.length,
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return Item(
+                    imgUrl: newslist[index].urlToImage ?? "",
+                    title: newslist[index].title ?? "",
+                    desc: newslist[index].description ?? "",
+                    content: newslist[index].content ?? "",
+                    posturl: newslist[index].articleUrl ?? "",
+                  );
+                }),
+          ),
+        ),
+      )
     );
   }
 }

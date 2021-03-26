@@ -3,13 +3,33 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../Drawer.dart';
 import '../Items.dart';
 import '../search.dart';
-
+import 'package:news/backend/news.dart';
 class Infographics extends StatefulWidget {
   @override
   _InfographicsState createState() => _InfographicsState();
 }
 
 class _InfographicsState extends State<Infographics> {
+  var newslist;
+  bool _loading = true;
+  void getNews() async {
+    News news = News();
+    await news.getnews();
+    newslist = news.news;
+    setState(() {
+       _loading = false;
+    });
+  }
+
+  @override
+  void initState() {
+   // _loading = true;
+    // TODO: implement initState
+    super.initState();
+
+
+    getNews();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,17 +48,27 @@ class _InfographicsState extends State<Infographics> {
           ),
         ],
       ),
-      body: ListView(
-        children: [
-          Item(),
-          Item(),
-          Item(),
-          Item(),
-          Item(),
-          Item(),
-          Item(),
-        ],
-      ),
+      body:_loading?Center(child: CircularProgressIndicator()): SingleChildScrollView(
+        child: Center(
+          child: Container(
+            margin: EdgeInsets.only(top: 16),
+            child: ListView.builder(
+                itemCount: newslist.length,
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return Item(
+                    imgUrl: newslist[index].urlToImage ?? "",
+                    title: newslist[index].title ?? "",
+                    desc: newslist[index].description ?? "",
+                    content: newslist[index].content ?? "",
+                    posturl: newslist[index].articleUrl ?? "",
+                  );
+                }),
+          ),
+        ),
+      )
     );
+
   }
 }
