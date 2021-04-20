@@ -9,11 +9,13 @@ class News {
 
   Future<void> getnews() async{
 
-    var url = "http://newsapi.org/v2/top-headlines?country=in&excludeDomains=stackoverflow.com&sortBy=publishedAt&language=en&apiKey=f35e96e8440643358ffc688de1f15a39";
+    var url = "https://newsapi.org/v2/top-headlines?country=in&excludeDomains=stackoverflow.com&sortBy=publishedAt&language=en&apiKey=f35e96e8440643358ffc688de1f15a39";
 
     var response = await http.get(Uri.parse(url));
 
     var jsonData = jsonDecode(response.body);
+
+
 
     if(jsonData['status'] == "ok"){
       jsonData["articles"].forEach((element){

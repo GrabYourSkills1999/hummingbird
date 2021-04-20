@@ -56,7 +56,7 @@ class _HomeState extends State<Home> {
         ],
       ),
 
-      body:_loading?Center(child: CircularProgressIndicator(color: Colors.red,),): SingleChildScrollView(
+      body:_loading?Center(child: CircularProgressIndicator(),): SingleChildScrollView(
         child: Center(
           child: Container(
             margin: EdgeInsets.only(top: 16),
