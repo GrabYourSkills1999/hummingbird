@@ -1,10 +1,12 @@
+
 import 'package:flutter/material.dart';
 import 'package:news/backend/article.dart';
 import 'package:news/screens/ArticleView.dart';
 
 
 class Item extends StatelessWidget {
-  final String imgUrl, title, desc, content, posturl;
+  final  String  title, desc, content, posturl;
+  final String imgUrl;
 
   Item({this.imgUrl, this.desc, this.title, this.content, @required this.posturl});
   @override
@@ -13,13 +15,17 @@ class Item extends StatelessWidget {
       onTap: (){
         Navigator.push(context, MaterialPageRoute(
             builder: (context) => ArticleView(
-              postUrl: posturl,
+              title: title,
+              urlToImage: imgUrl,
+              content: content,
+
             )
         ));
       },
       child: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: const EdgeInsets.all(10.0),
         child: Container(
+          padding: EdgeInsets.all(10.0),
           decoration: BoxDecoration(
             color: Color(0xFF272727),
             boxShadow: [
@@ -39,6 +45,7 @@ class Item extends StatelessWidget {
           child: Container(
             child: Column(
               children: [
+
                 ClipRRect(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
@@ -54,8 +61,14 @@ class Item extends StatelessWidget {
                 SizedBox(
                   height: 16,
                 ),
+                Container(
+                  child: Text(title,maxLines: 2,
+                    style: TextStyle(fontWeight:FontWeight.bold ,
+
+                        color: Colors.white) ) ,
+                ),
                 Padding(
-                  padding: const EdgeInsets.all(19.0),
+                  padding: const EdgeInsets.fromLTRB(0, 6, 0, 3),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -63,12 +76,13 @@ class Item extends StatelessWidget {
                         child: Container(
                           width: MediaQuery.of(context).size.width,
                           child: Text(desc,
-                        maxLines: 2,
+
                             style: TextStyle(
                                 color: Colors.white
                             ),
                           ),
                         ),
+
                       ),
 
                       Container(
@@ -76,7 +90,7 @@ class Item extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),

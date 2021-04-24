@@ -33,11 +33,11 @@ class _MarketsState extends State<Markets> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawers(),
+
       appBar: AppBar(
         elevation: 4.0,
         backgroundColor: Colors.black,
-        title: Center(child: new Text("Weather Report")),
+        title: new Text("Weather Report"),
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.search),

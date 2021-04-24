@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class Article{
 
   String title;

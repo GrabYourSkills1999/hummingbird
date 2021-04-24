@@ -16,11 +16,11 @@ class _BookmarksState extends State<Bookmarks> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: Drawers(),
+
         appBar: AppBar(
           elevation: 4.0,
           backgroundColor: Colors.black,
-          title: Center(child: new Text("Weather Report")),
+          title: new Text("Weather Report"),
           actions: <Widget>[
 
             new IconButton(
