@@ -31,6 +31,7 @@ class News {
             articleUrl: element["url"],
           );
           news.add(article);
+
         }
 
       });

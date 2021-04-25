@@ -7,7 +7,8 @@ class ArticleView extends StatefulWidget {
   final  String urlToImage;
   final String content;
       final String title;
-  ArticleView({@required this.urlToImage,@required this.content,@ required this.title});
+  final String disc;
+  ArticleView({@required this.urlToImage,@required this.content,@ required this.title,@ required this.disc});
 
   @override
   _ArticleViewState createState() => _ArticleViewState();
@@ -22,8 +23,14 @@ class _ArticleViewState extends State<ArticleView> {
       appBar: AppBar(
         title: Text(
        widget.title,
+          maxLines: 2,
           style:
-          TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w500,
+            fontSize: 15
+
+          ),
         ),
 
         backgroundColor: Colors.transparent,
@@ -32,13 +39,57 @@ class _ArticleViewState extends State<ArticleView> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(
+              height: 10,
+            ),
             Container(
               child: Image.network(widget.urlToImage),
             ),
+            SizedBox(
+              height: 25,
+            ),
             Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child:Text(widget.content,),
+              padding: const EdgeInsets.all(8.0),
+              child:Text(widget.disc,
+                style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                  color: Colors.white,
+                  fontSize: 16,
+                  letterSpacing: 0.8
+                ),
+              ),
+            ),
+
+            Divider(
+              color: Colors.white,
+              indent: 10,
+              endIndent: 10,
+              thickness: 1,
+            ),
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              child:Text(widget.content,
+                style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                  color: Colors.white,
+                  fontSize: 16,
+                    letterSpacing: 0.8
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            Container(
+              child:Center(
+                child: Text("Read More",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
