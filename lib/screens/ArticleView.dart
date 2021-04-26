@@ -91,28 +91,7 @@ class _ArticleViewState extends State<ArticleView> {
                 ),
               ),
             ),
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(widget.title,
-                      maxLines: 2,
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Image.network(widget.urlToImage,height: 60)
-                    ,
-                  ),
-                ],
-              ),
-            ),
+            // NewWidget(widget: widget, widget1: widget),
 
           ],
         ),
@@ -120,3 +99,40 @@ class _ArticleViewState extends State<ArticleView> {
     );
   }
 }
+
+// class NewWidget extends StatelessWidget {
+//   const NewWidget({
+//     Key key,
+//     @required this.widget,
+//     @required this.widget1,
+//   }) : super(key: key);
+//
+//   final ArticleView widget;
+//   final ArticleView widget1;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Card(
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(15.0),
+//       ),
+//
+//       child: Row(
+//         children: [
+//           Expanded(
+//             child: Text(widget.title,
+//               maxLines: 2,
+//               style: TextStyle(
+//                 color: Colors.white,
+//               ),
+//             ),
+//           ),
+//           Expanded(
+//             child: Image.network(widget.urlToImage,height: 60)
+//             ,
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }

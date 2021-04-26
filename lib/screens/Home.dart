@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         elevation: 4.0,
         backgroundColor: Colors.black,
-        title: new Text("Weather Report"),
+        title: new Text("News"),
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.filter_alt_rounded),

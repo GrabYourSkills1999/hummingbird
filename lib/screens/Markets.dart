@@ -37,7 +37,7 @@ class _MarketsState extends State<Markets> {
       appBar: AppBar(
         elevation: 4.0,
         backgroundColor: Colors.black,
-        title: new Text("Weather Report"),
+        title: new Text("News"),
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.search),

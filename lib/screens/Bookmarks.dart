@@ -20,7 +20,7 @@ class _BookmarksState extends State<Bookmarks> {
         appBar: AppBar(
           elevation: 4.0,
           backgroundColor: Colors.black,
-          title: Center(child: new Text("Weather Report")),
+          title: Center(child: new Text("News")),
           actions: <Widget>[
 
             new IconButton(
