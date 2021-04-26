@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:news/backend/business.dart';
 import '../Drawer.dart';
 import '../Items.dart';
 import '../search.dart';
@@ -13,9 +14,9 @@ class _MarketsState extends State<Markets> {
   var newslist;
   bool _loading = true;
   void getNews() async {
-    News news = News();
+    BusinessNews news = BusinessNews();
     await news.getnews();
-    newslist = news.news;
+    newslist = news.businessnews;
     setState(() {
        _loading = false;
     });

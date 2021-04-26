@@ -1,16 +1,17 @@
+
 import 'package:http/http.dart' as http;
 import 'article.dart';
 import 'dart:convert';
 
 
-class News {
+class backend_Infographics {
 
-  List<Article> news  = [];
+  List<Article> infographics  = [];
 
   Future<void> getnews() async{
 
-    var url = "https://newsapi.org/v2/top-headlines?country=in&excludeDomains=stackoverflow.com&sortBy=publishedAt&language=en&apiKey=f35e96e8440643358ffc688de1f15a39";
-     var response = await http.get(Uri.parse(url));
+    var infographicsurl = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=f35e96e8440643358ffc688de1f15a39";
+    var response = await http.get(Uri.parse(infographicsurl));
 
     var jsonData = jsonDecode(response.body);
 
@@ -29,7 +30,7 @@ class News {
             content: element["content"],
             articleUrl: element["url"],
           );
-          news.add(article);
+          infographics.add(article);
 
         }
 

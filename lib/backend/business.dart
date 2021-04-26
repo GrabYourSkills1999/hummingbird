@@ -3,14 +3,14 @@ import 'article.dart';
 import 'dart:convert';
 
 
-class News {
+class BusinessNews {
 
-  List<Article> news  = [];
+  List<Article> businessnews  = [];
 
   Future<void> getnews() async{
 
-    var url = "https://newsapi.org/v2/top-headlines?country=in&excludeDomains=stackoverflow.com&sortBy=publishedAt&language=en&apiKey=f35e96e8440643358ffc688de1f15a39";
-     var response = await http.get(Uri.parse(url));
+    var businessurl = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=f35e96e8440643358ffc688de1f15a39";
+    var response = await http.get(Uri.parse(businessurl));
 
     var jsonData = jsonDecode(response.body);
 
@@ -29,7 +29,7 @@ class News {
             content: element["content"],
             articleUrl: element["url"],
           );
-          news.add(article);
+          businessnews.add(article);
 
         }
 

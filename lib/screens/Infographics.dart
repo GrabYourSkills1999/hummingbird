@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:news/backend/infographics.dart';
 import '../Drawer.dart';
 import '../Items.dart';
 import '../search.dart';
@@ -13,11 +14,11 @@ class _InfographicsState extends State<Infographics> {
   var newslist;
   bool _loading = true;
   void getNews() async {
-    News news = News();
+    backend_Infographics news =backend_Infographics();
     await news.getnews();
-    newslist = news.news;
+    newslist = news.infographics;
     setState(() {
-       _loading = false;
+      _loading = false;
     });
   }
 
