@@ -1,4 +1,4 @@
-# news
+# hummingbird
 
 A new Flutter application.
 
